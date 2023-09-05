@@ -1,7 +1,6 @@
 #    Flight Delay Predictions and Insights- Project 4  
                 * By: Amanda Pham, Aldo Lee, Michael Cummings & Rupal Shah
-
-![Alt text](Project 4/TitleCard.png?raw=true "Title")
+<img width="890" alt="TitleCard" src="https://github.com/adrue94/project-4-repository/assets/126340452/ca93dfba-5c75-47ba-858f-4e38ac36b36a">
 
 
 
