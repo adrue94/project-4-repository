@@ -80,6 +80,21 @@ Epochs 10
 ![Epoch 10](Images/10Epochs.png)
 
 
+* CatBoost (short for “Category Boosting”) is a powerful machine learning tool that's good at handling mixed types of data, efficiently training models, and making accurate predictions, especially in situations where there are both categorical and numeric features (e.g. Airline abbreviation vs flight number). CatBoost uses a technique called "Gradient Boosting." which creates multiple decision trees, sequentially, and combines their predictions to make a final prediction. Each tree corrects the mistakes of the previous ones.
+ 
+  * This differs from Random Forest in that Random Forest is an ensemble learning method that combines the predictions of multiple decision trees in a non-sequential manner and then converges the findings from the trees to make more accurate predictions. Since I was repeatedly overfitting and suffering from data leakage with high loss rates, I decided to investigate possible causes. I realized that the dataset already had numeric representations of the categorical airline abbreviations. I realized I didn’t need to waste extra processing resources to convert and encode those columns of data when I could just use another numeric column. Then I realized we may have better results using deep learning, since the specific benefits of CatBoost weren’t really needed in this case.
+
+
+* We then chose to make predictions using a multi-class classification Neural Network Keras model. After removing all defined null values, I realized that most if not all of the columns pertaining to cancelled flights would be removed, creating a binary classification model with severe data loss. I then used Numpy to replace those null cells with a “0” placeholder, so the model could essentially ignore these cells while still taking into consideration the other relevant data to the model. Once I established a disposition code for each class (“0” for On-time, “1” for Delayed, and “2” for Cancelled), I then dropped the ‘Cancelled’ column to prevent overfitting. For further preprocessing, the data was binned, split the data into testing and training data and then scaled.
+
+  * My first attempt was customized using 2 hidden layers with a low amount of neurons and the Relu activation method. The output layer used the ‘Softmax’ activation layer for its nodes, which is compatible with multi-class classification models because it transforms the raw model outputs into a probability distribution over multiple classes. 
+
+  * The 2nd attempt used 25 epochs with no encoding since there was no categorical data. Since the accuracy is very high, we were concerned about overfitting, so we plotted learning curves to show the loss and accuracy between the testing and validation data across all epochs.
+
+  * The third attempt was prompted by a discovery that certain columns may be contributing to the overfitting, so those columns were removed and as a result of the reduction to only 159 parameters, the following results were obtained. We can see due to high loss rates, the model underperforms.
+
+  * Still leaving out the two columns in question, but adding more columns, 1 layer, almost 10 times more nodes and more diversity within the activation methods. My final attempt initially produced a high increasing accuracy rate and a low decreasing loss rate; however, as you can see from the Learning Curve, these favorable trends suddenly reversed indicating overfitting as the model increasingly struggled to perform well on the testing data. I decided to leave it here, since I had already achieved 75% in earlier versions, but I believe this model could be strengthened with less hidden layers and/or nodes. 
+
 
 
 # Conclusion
