@@ -8,14 +8,14 @@
  Ultimately, our group chose to engage with categorical data where we could utilize a classification model to predict from a preset number of outcomes. Our data is sourced from flight information which pertains to all on-time, cancelled and delayed flights by airline (and many other factors) dating back to January of 2018. The raw data set contained 61 columns and several million rows. The most recent 2022 flight data alone ranged from January 1st, 2022, to July 31st of 2022 containing 4,078,318 rows at just over 1.42 gigabytes of space.
     We chose to focus on the entirety of the 2022 flight data and engaged with it using Python, PySpark, and Tableau.To do the pre- processing of data we used MatPlotLib, Pandas, Numpy and Tableau to provide visualizations and insight on the trends, data types and information within the columns. 
 
-# ## The objectives of this study are:
+# Study  Objective:
 
 1.To identify the attributes that affect flight delays.  
 2.To develop machine learning models that classify flight outcomes (either delayed or not delayed or cancelled) with selected features.  
 3.To evaluate the performance of different machine learning models.  
 
 
-## Data Source:
+# Data Source:
 
 The data was obtained from the "Flight Status Prediction" at Kaggle.com web page. The dataset consisting of flight information in the United States from 2018 to 2022.  In this study, the only data utilized was from the year 2022. The raw data set contained 61 columns and several million rows. The most recent 2022 flight data alone ranged from January 1st, 2022, to July 31st of 2022 containing 4,078,318 rows at just over 1.42 gigabytes of space.
 
