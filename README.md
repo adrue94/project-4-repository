@@ -81,7 +81,8 @@ Epochs 10
 
 
 * CatBoost (short for “Category Boosting”) is a powerful machine learning tool that's good at handling mixed types of data, efficiently training models, and making accurate predictions, especially in situations where there are both categorical and numeric features (e.g. Airline abbreviation vs flight number). CatBoost uses a technique called "Gradient Boosting." which creates multiple decision trees, sequentially, and combines their predictions to make a final prediction. Each tree corrects the mistakes of the previous ones.
- 
+ <img width="813" alt="CatBoost_results" src="https://github.com/adrue94/project-4-repository/assets/126340452/2aac0b53-5b87-4046-9600-be205df38c37">
+
   * This differs from Random Forest in that Random Forest is an ensemble learning method that combines the predictions of multiple decision trees in a non-sequential manner and then converges the findings from the trees to make more accurate predictions. Since I was repeatedly overfitting and suffering from data leakage with high loss rates, I decided to investigate possible causes. I realized that the dataset already had numeric representations of the categorical airline abbreviations. I realized I didn’t need to waste extra processing resources to convert and encode those columns of data when I could just use another numeric column. Then I realized we may have better results using deep learning, since the specific benefits of CatBoost weren’t really needed in this case.
 
 
@@ -90,10 +91,13 @@ Epochs 10
   * My first attempt was customized using 2 hidden layers with a low amount of neurons and the Relu activation method. The output layer used the ‘Softmax’ activation layer for its nodes, which is compatible with multi-class classification models because it transforms the raw model outputs into a probability distribution over multiple classes. 
 
   * The 2nd attempt used 25 epochs with no encoding since there was no categorical data. Since the accuracy is very high, we were concerned about overfitting, so we plotted learning curves to show the loss and accuracy between the testing and validation data across all epochs.
+<img width="795" alt="MC_NN_2nd_attempt" src="https://github.com/adrue94/project-4-repository/assets/126340452/1c244771-1f6d-405f-8a46-fc9050698bff">
 
   * The third attempt was prompted by a discovery that certain columns may be contributing to the overfitting, so those columns were removed and as a result of the reduction to only 159 parameters, the following results were obtained. We can see due to high loss rates, the model underperforms.
+<img width="824" alt="MC_NN_3rd_attempt" src="https://github.com/adrue94/project-4-repository/assets/126340452/bf65e686-e288-4351-9f36-c4c0c91862a4">
 
   * Still leaving out the two columns in question, but adding more columns, 1 layer, almost 10 times more nodes and more diversity within the activation methods. My final attempt initially produced a high increasing accuracy rate and a low decreasing loss rate; however, as you can see from the Learning Curve, these favorable trends suddenly reversed indicating overfitting as the model increasingly struggled to perform well on the testing data. I decided to leave it here, since I had already achieved 75% in earlier versions, but I believe this model could be strengthened with less hidden layers and/or nodes. 
+<img width="810" alt="MC_NN_finalattempt" src="https://github.com/adrue94/project-4-repository/assets/126340452/857d7f56-45aa-40ab-8f81-1b58e925b0f0">
 
 
 
