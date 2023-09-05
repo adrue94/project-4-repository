@@ -1,6 +1,9 @@
 #    Flight Delay Predictions and Insights- Project 4  
                 * By: Amanda Pham, Aldo Lee, Michael Cummings & Rupal Shah
 
+![Alt text](Project 4/TitleCard.png?raw=true "Title")
+
+
 
  Flight is an essential mode of transportation in this century, allowing people to travel across far distances in a short amount of time. Our process of developing an accurate Machine Learning Model started with selecting the type of model and dataset we were interested in. 
  Ultimately, our group chose to engage with categorical data where we could utilize a classification model to predict from a preset number of outcomes. Our data is sourced from flight information which pertains to all on-time, cancelled and delayed flights by airline (and many other factors) dating back to January of 2018. The raw data set contained 61 columns and several million rows. The most recent 2022 flight data alone ranged from January 1st, 2022, to July 31st of 2022 containing 4,078,318 rows at just over 1.42 gigabytes of space.
