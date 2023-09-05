@@ -101,6 +101,9 @@ Epochs 10
 
 
 # Conclusion
+
+In summary, our project showcased the importance of data preprocessing, exploratory data analysis, and model optimization in predicting flight outcomes accurately.Our machine learning efforts involved various approaches, including Random Forest, neural networks, and CatBoost. We optimized models through multiple iterations, addressing issues such as overfitting and data leakage. The final neural network model achieved impressive accuracy in multi-class flight status prediction. Despite the complexities, our team successfully navigated the challenges to build a robust predictive model for flight status. 
+
 Overall, based on this classification report, the Keras Neural Network model appears to perform exceptionally well. It achieves high precision, recall, and F1-scores across all classes, even for the imbalanced classes. 
 
 If your objective is to accurately predict whether a flight will be On-Time, Delayed, or Cancelled, this model seems to be an excellent choice.
