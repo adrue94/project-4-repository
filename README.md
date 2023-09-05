@@ -10,9 +10,9 @@
 
 # ## The objectives of this study are:
 
-1.To identify the attributes that affect flight delays.
-2.To develop machine learning models that classify flight outcomes (either delayed or not delayed or cancelled) with selected features.
-3.To evaluate the performance of different machine learning models.
+1.To identify the attributes that affect flight delays.  
+2.To develop machine learning models that classify flight outcomes (either delayed or not delayed or cancelled) with selected features.  
+3.To evaluate the performance of different machine learning models.  
 
 
 ## Data Source:
@@ -24,19 +24,19 @@ The data was obtained from the "Flight Status Prediction" at Kaggle.com web page
 
 Note: The process was executed by Python, PySpark session in Google Colab and Tableau.
 
-To facilitate the modeling process, the only flight data for year 2022 was considered and used to model the machine learning model. Data cleaning was performed on the Departure Delay, Arrival Delay and Cancelled Flights and also Destination was taken in consideration. Missing values or the values with Nan were replaced with 0. Attributes with more than 50% of missing values that did not provide helpful information to this analysis were dropped—unrelated attributes such as attributes that recorded the outcome of diverted flights were also removed. Since our main objective was to predict flight delay, arrival delay and cancelled flights, unnecessary columns were either dropped or just used necessary columns.
+To facilitate the modeling process, only the flight data for 2022 was considered and used for the machine learning model. Data cleaning was performed on the Departure Delay, Arrival Delay and Cancelled Flights and also Destination was taken in consideration. Missing values or the values with Nan were replaced with 0. Attributes with more than 50% of missing values that did not provide helpful information to this analysis were dropped—unrelated attributes such as attributes that recorded the outcome of diverted flights were also removed. Since our main objective was to predict flight delay, arrival delay and cancelled flights, unnecessary columns were either dropped or just used necessary columns.
 
 For classification purposes, a binary attribute, namely "DepDel15," was added to the record status of the flight and for multi-classsification attribute "cancelled flights", "DepDelay", "ArrDelays"is used. Before modeling, all categorical attributes such as destination airports, day of the week, flight carrier, and flight delay factors were converted to numerical variables via one hot encoding method. One dummy variable would be created for every object in the categorical variable. If the category is presented, the value would be denoted as one. Otherwise, the value would be denoted as zero.
 
 
 ## The following visualizations show some of our findings through data analysis 
-![Delayed Flights](../project-4-repository/Images/Flight_Departure_Delays.png)
+![Flight_Departure_Delays](https://github.com/adrue94/project-4-repository/assets/126340452/03c67805-d222-4b2f-8e62-6bd1d816500e)
 
 
-![Flights Arrival Delays](../project-4-repository/Images/Flight_Arrival_Delays.png)
+![Flight_Arrival_Delays](https://github.com/adrue94/project-4-repository/assets/126340452/8e4b03f9-d437-4c5f-b7e5-ab046fbbab96)
 
 
-![Flights Arrival Delays](../project-4-repository/Images/Flight_Cancellations.png)
+![Flight_Cancellations](https://github.com/adrue94/project-4-repository/assets/126340452/2a70fa4a-a9ab-4990-9ded-c427ef720d1f)
 
 
 # Model Initialization
@@ -101,6 +101,19 @@ Epochs 10
 
 
 # Conclusion
+Overall, based on this classification report, the Keras Neural Network model appears to perform exceptionally well. It achieves high precision, recall, and F1-scores across all classes, even for the imbalanced classes. 
 
+If your objective is to accurately predict whether a flight will be On-Time, Delayed, or Cancelled, this model seems to be an excellent choice.
 
+* Precision: Precision measures the accuracy of positive predictions. For all classes (On-Time, Delayed, Cancelled), the precision scores are very high, with values of 0.99 or 1.00. This indicates that the model makes very few false positive predictions for each class, meaning that when it predicts a class, it's usually correct.
+
+* Recall: Recall measures the model's ability to identify all relevant instances. While the recall for the "Delayed" class is slightly lower at 0.98, it is still very high. For the other classes, it's perfect (1.00). This indicates that the model captures almost all of the actual positive instances for each class.
+
+* F1-Score: The F1-score is the harmonic mean of precision and recall, providing a balanced measure of a model's performance. All F1-scores are very high, ranging from 0.99 to 1.00. This suggests that the model is performing exceptionally well in terms of both precision and recall for all classes.
+
+* Accuracy: The overall accuracy of the model is 0.99, which is also very high. This confirms that the model's predictions are highly accurate.
+
+* Support: The "support" column indicates the number of instances for each class in the dataset. It's clear that the dataset is imbalanced, with a significantly larger number of instances in the "On-Time" class compared to the other classes, which is to be expected considering the aim is to have very few delayed and/or cancelled flights.
+
+* Macro Avg and Weighted Avg: These rows provide average values for precision, recall, and F1-score across all classes. In both cases, the averages are very high (0.99), demonstrating the model's strong overall performance.
 
